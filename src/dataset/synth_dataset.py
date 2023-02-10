@@ -184,9 +184,20 @@ if __name__ == "__main__":
     # print("成功222222222！！！")
     # print("成功333333333！！！")
 
-    steps = train_dataset.get_dataset_size()
-    class_indexing = train_dataset.get_class_indexing()
-    print("setps:", steps)
+    # steps = train_dataset.get_dataset_size()
+    # class_indexing = train_dataset.get_class_indexing()
+    # print("setps:", steps)
+
+    # for data_dict in train_dataset.create_dict_iterator():
+    #     print(type(data_dict["data"]),type(data_dict["label"]))
+    #     print(data_dict["data"].shape, data_dict["label"].shape)
+
+    iterator = train_dataset.create_tuple_iterator()
+    for data_tuple in iterator:
+        for data in data_tuple:
+            print(data.shape)
+    print("="*20)
+
     # # import cv2 as cv
     # import matplotlib.pyplot as plt
     # for data in datasett.create_dict_iterator():
